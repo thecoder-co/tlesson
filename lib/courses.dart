@@ -104,33 +104,145 @@ class Courses extends StatelessWidget {
           List<Widget> children = [];
           if (index.isEven) {
             children.addAll([
-              Image.network(courses[index].photoLink),
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(courses[index].photoLink)),
               const Padding(
                 padding: EdgeInsets.all(18.0),
                 child: VerticalDivider(),
               ),
-              Column(children: [
-                Text(
-                  courses[index].name,
-                  style: Theme.of(context).textTheme.headline2,
-                ),
-                Text(courses[index].desc),
-              ])
+              Expanded(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        courses[index].name,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline2
+                            ?.copyWith(fontSize: 50),
+                      ),
+                      Text(courses[index].desc),
+                      const Spacer(),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                fixedSize: const Size.fromHeight(40),
+                                primary: AppColors.greenSheen,
+                                onPrimary: AppColors.blackCoffee,
+                              ),
+                              onPressed: () async {
+                                if (!await launchUrl(Uri.parse(
+                                    'https://api.whatsapp.com/send/?phone=${courses[index].tutorNumber}&text=I%20want%20to%20enroll%20for%20${courses[index].name.replaceAll(' ', '')}&app_absent=0'))) {
+                                  throw 'Could not launch';
+                                }
+                              },
+                              child: const Text('Enroll'),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                fixedSize: const Size.fromHeight(40),
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                primary: AppColors.teal,
+                                onPrimary: Colors.white,
+                              ),
+                              onPressed: () async {
+                                if (!await launchUrl(Uri.parse(
+                                    'https://api.whatsapp.com/send/?phone=${courses[index].tutorNumber}&text=I%20want%20to%20enroll%20for%20${courses[index].name.replaceAll(' ', '')}&app_absent=0'))) {
+                                  throw 'Could not launch';
+                                }
+                              },
+                              child: const Text('Contact tutor'),
+                            ),
+                          ),
+                        ],
+                      )
+                    ]),
+              )
             ]);
           } else {
             children.addAll([
-              Column(children: [
-                Text(
-                  courses[index].name,
-                  style: Theme.of(context).textTheme.headline2,
-                ),
-                Text(courses[index].desc),
-              ]),
+              Expanded(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        courses[index].name,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline2
+                            ?.copyWith(fontSize: 50),
+                      ),
+                      Text(courses[index].desc),
+                      const Spacer(),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                fixedSize: const Size.fromHeight(40),
+                                primary: AppColors.greenSheen,
+                                onPrimary: AppColors.blackCoffee,
+                              ),
+                              onPressed: () async {
+                                if (!await launchUrl(Uri.parse(
+                                    'https://api.whatsapp.com/send/?phone=${courses[index].tutorNumber}&text=I%20want%20to%20enroll%20for%20${courses[index].name.replaceAll(' ', '')}&app_absent=0'))) {
+                                  throw 'Could not launch';
+                                }
+                              },
+                              child: const Text('Enroll'),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                fixedSize: const Size.fromHeight(40),
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                primary: AppColors.teal,
+                                onPrimary: Colors.white,
+                              ),
+                              onPressed: () async {
+                                if (!await launchUrl(Uri.parse(
+                                    'https://api.whatsapp.com/send/?phone=${courses[index].tutorNumber}&text=I%20want%20to%20enroll%20for%20${courses[index].name.replaceAll(' ', '')}&app_absent=0'))) {
+                                  throw 'Could not launch';
+                                }
+                              },
+                              child: const Text('Contact tutor'),
+                            ),
+                          ),
+                        ],
+                      )
+                    ]),
+              ),
               const Padding(
                 padding: EdgeInsets.all(18.0),
                 child: VerticalDivider(),
               ),
-              Image.network(courses[index].photoLink),
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(courses[index].photoLink)),
             ]);
           }
           return Builder(
@@ -167,8 +279,9 @@ class Courses extends StatelessWidget {
                               ),
                               onPressed: () async {
                                 if (!await launchUrl(Uri.parse(
-                                    'https://api.whatsapp.com/send/?phone=${courses[index].tutorNumber}&text=I%20want%20to%20enroll%20for%20${courses[index].name.replaceAll(' ', '')}&app_absent=0')))
+                                    'https://api.whatsapp.com/send/?phone=${courses[index].tutorNumber}&text=I%20want%20to%20enroll%20for%20${courses[index].name.replaceAll(' ', '')}&app_absent=0'))) {
                                   throw 'Could not launch';
+                                }
                               },
                               child: const Text('Enroll'),
                             ),
@@ -187,8 +300,9 @@ class Courses extends StatelessWidget {
                               ),
                               onPressed: () async {
                                 if (!await launchUrl(Uri.parse(
-                                    'https://api.whatsapp.com/send/?phone=${courses[index].tutorNumber}&text=I%20want%20to%20enroll%20for%20${courses[index].name.replaceAll(' ', '')}&app_absent=0')))
+                                    'https://api.whatsapp.com/send/?phone=${courses[index].tutorNumber}&text=I%20want%20to%20enroll%20for%20${courses[index].name.replaceAll(' ', '')}&app_absent=0'))) {
                                   throw 'Could not launch';
+                                }
                               },
                               child: const Text('Contact tutor'),
                             ),
@@ -204,14 +318,13 @@ class Courses extends StatelessWidget {
                 );
               }
               return SizedBox(
-                height:
-                    MediaQuery.of(context).orientation == Orientation.portrait
-                        ? Sizes.screenHeight(context) * 0.3
-                        : Sizes.screenHeight(context) * 0.7,
+                height: Sizes.screenHeight(context) * 0.6,
                 child: Padding(
-                  padding: const EdgeInsets.all(18.0),
+                  padding: const EdgeInsets.all(30.0),
                   child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: index.isEven
+                        ? MainAxisAlignment.start
+                        : MainAxisAlignment.end,
                     children: children,
                   ),
                 ),
