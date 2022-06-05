@@ -156,15 +156,6 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           Courses(),
-          SliverToBoxAdapter(
-            child: Column(
-              children: const [
-                SizedBox(height: 30),
-                Header(title: 'Contact-Us'),
-                SizedBox(height: 30),
-              ],
-            ),
-          ),
         ],
       ),
     );
