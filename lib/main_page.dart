@@ -156,20 +156,15 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           Courses(),
-          SliverList(
-            key: _sliverListKey,
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                return ListTile(
-                  title: Text('Seat $index'),
-                  subtitle: const Text(
-                    'Available',
-                  ),
-                  leading: const Icon(Icons.check),
-                );
-              },
+          SliverToBoxAdapter(
+            child: Column(
+              children: const [
+                SizedBox(height: 30),
+                Header(title: 'Contact-Us'),
+                SizedBox(height: 30),
+              ],
             ),
-          )
+          ),
         ],
       ),
     );

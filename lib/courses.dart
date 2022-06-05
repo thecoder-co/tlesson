@@ -310,10 +310,11 @@ class Courses extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Divider(),
-                    )
+                    if (index != courses.length - 1)
+                      const Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Divider(),
+                      )
                   ],
                 );
               }
