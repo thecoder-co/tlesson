@@ -11,89 +11,89 @@ class Courses extends StatelessWidget {
       name: 'CHM 111',
       desc: 'Chemistry',
       tutorNumber: '2348132828211',
-      photoLink: 'https://www.linkpicture.com/q/Kachi-01.png',
+      photoLink: 'assets/Kachi-01.png',
     ),
     Course(
       name: 'CHM 112',
       desc: 'Chemistry',
       tutorNumber: '2348132828211',
-      photoLink: 'https://www.linkpicture.com/q/Kachi-02.png',
+      photoLink: 'assets/Kachi-02.png',
     ),
     Course(
         name: 'MCB 111',
         desc: 'Microbiology',
         tutorNumber: '2347016594005',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-03.png'),
+        photoLink: 'assets/Kachi-03.png'),
     Course(
         name: 'MCB 121',
         desc: 'Microbiology',
         tutorNumber: '2347016594005',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-04.png'),
+        photoLink: 'assets/Kachi-04.png'),
     Course(
         name: 'BIO 111',
         desc: 'Biology',
         tutorNumber: '2348132828211',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-05.png'),
+        photoLink: 'assets/Kachi-05.png'),
     Course(
         name: 'BIO 121',
         desc: 'Biology',
         tutorNumber: '2348132828211',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-06.png'),
+        photoLink: 'assets/Kachi-06.png'),
     Course(
         name: 'MAC 112',
         desc: 'African Communication',
         tutorNumber: '2348020599535',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-07.png'),
+        photoLink: 'assets/Kachi-07.png'),
     Course(
         name: 'GST 113',
         desc: 'Philosophy',
         tutorNumber: '2348020599535',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-08.png'),
+        photoLink: 'assets/Kachi-08.png'),
     Course(
         name: 'ENG 111',
         desc: 'Communication in English',
         tutorNumber: '2349091487520',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-09.png'),
+        photoLink: 'assets/Kachi-09.png'),
     Course(
         name: 'GST 123',
         desc: 'Communication in French',
         tutorNumber: '2349059081296',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-10.png'),
+        photoLink: 'assets/Kachi-10.png'),
     Course(
         name: 'MAC 121',
         desc: 'Writing in Mass Media',
         tutorNumber: '2349091487520',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-11.png'),
+        photoLink: 'assets/Kachi-11.png'),
     Course(
         name: 'MAC 122',
         desc: 'History in Mass Media',
         tutorNumber: '2349091487520',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-12.png'),
+        photoLink: 'assets/Kachi-12.png'),
     Course(
         name: 'STA 111',
         desc: 'Statistics',
         tutorNumber: '2348078868822',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-13.png'),
+        photoLink: 'assets/Kachi-13.png'),
     Course(
         name: 'STA 121',
         desc: 'Statistics',
         tutorNumber: '2348078868822',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-14.png'),
+        photoLink: 'assets/Kachi-14.png'),
     Course(
         name: 'CSC 111',
         desc: 'Computer Science',
         tutorNumber: '2347038808006',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-15.png'),
+        photoLink: 'assets/Kachi-15.png'),
     Course(
         name: 'PHY 111',
         desc: 'Physics',
         tutorNumber: '2349033476145',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-16.png'),
+        photoLink: 'assets/Kachi-16.png'),
     Course(
         name: 'PHY 121',
         desc: 'Physics',
         tutorNumber: '2349033476145',
-        photoLink: 'https://www.linkpicture.com/q/Kachi-17.png'),
+        photoLink: 'assets/Kachi-17.png'),
   ];
 
   @override
@@ -106,7 +106,9 @@ class Courses extends StatelessWidget {
             children.addAll([
               ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.network(courses[index].photoLink)),
+                  child: Image.asset(
+                    courses[index].photoLink,
+                  )),
               const Padding(
                 padding: EdgeInsets.all(18.0),
                 child: VerticalDivider(),
@@ -241,8 +243,11 @@ class Courses extends StatelessWidget {
                 child: VerticalDivider(),
               ),
               ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.network(courses[index].photoLink)),
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  courses[index].photoLink,
+                ),
+              ),
             ]);
           }
           return Builder(
@@ -254,7 +259,9 @@ class Courses extends StatelessWidget {
                       padding: const EdgeInsets.all(18.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Image.network(courses[index].photoLink),
+                        child: Image.asset(
+                          courses[index].photoLink,
+                        ),
                       ),
                     ),
                     Text(
